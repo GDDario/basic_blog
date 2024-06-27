@@ -1,0 +1,21 @@
+{
+    "name": "gadondario/basic-blog",
+    "description": "Basic blog for studying some PHP concepts.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "config\\": "config/"
+        }
+    },
+    "authors": [
+        {
+            "name": "GDDario",
+            "email": "gd.dario.dev@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

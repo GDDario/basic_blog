@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    --hard-grey: #969593;
+}
+
+body {
+    background-color: #ffffb3;
+}
+
+a {
+    color: #000;
+}
+
+button {
+    font-size: 16px;
+}
+
+input {
+    font-size: 15px;
+}
