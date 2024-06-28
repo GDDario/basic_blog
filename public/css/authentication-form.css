@@ -13,6 +13,7 @@
     border: 3px solid #000;
     border-radius: 2px;
     padding: 2em;
+    box-sizing: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .card .authentication-form .form-body {
@@ -20,6 +21,10 @@
     flex-direction: column;
     gap: 8px;
     justify-content: space-between;
+}
+
+.twin-operation {
+    margin-bottom: 0.5em;
 }
 
 .card .authentication-form {
@@ -32,6 +37,15 @@
 
 .authentication-form .input-block label {
     display: block;
+}
+
+.authentication-form .input-block .field-error {
+    margin-top: 2px;
+}
+
+.authentication-form .input-block .field-error p {
+    color: rgb(226, 0, 0);
+    word-break: break-all;
 }
 
 .authentication-form input[type='text'],
@@ -59,6 +73,7 @@
     width: 100%;
     padding: 4px 8px;
     cursor: pointer;
-    border: 2px solid #000;;
+    border: 2px solid #000;
+    ;
     background-color: var(--hard-grey);
 }
