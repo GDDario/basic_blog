@@ -8,7 +8,9 @@ if (isset($_SESSION['message'])) {
 
     echo "
         <div class='message-container $type'>
-            <p class='message-header'>$header</p>
+            <p class='message-header'>
+                <b>$header</b>
+            </p>
             <hr>
             <p class='message-body'>$content</p>
         </div>

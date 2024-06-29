@@ -26,3 +26,18 @@ button {
 input {
     font-size: 15px;
 }
+
+.message-container {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    width: 15em;
+    border: 2px solid #000;
+    background-color: #fffff1;
+    padding: 0.5em;
+    text-align: end;
+}
+
+.message-container hr {
+    margin: 0.3em 0;
+}

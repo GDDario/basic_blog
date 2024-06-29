@@ -33,19 +33,19 @@ verifyItsLogged();
 
                     <div class="input-block">
                         <label>Username or email</label>
-                        <input type="text" name="username-email" />
+                        <input type="text" name="username-email" value="JillorD" />
                         <?php fieldError('username-email') ?>
                     </div>
 
                     <div class="input-block">
                         <label>Password</label>
-                        <input type="password" name="password" />
+                        <input type="password" name="password" value="password" />
                         <?php fieldError('password') ?>
                     </div>
 
                     <div class="input-block checkbox-block">
-                        <input id="keep-connected" type="checkbox" name="keep-connected" />
-                        <label for="keep-connected">Keep connected</label>
+                        <input id="keep-logged" type="checkbox" name="keeplogged" />
+                        <label for="keep-logged">Keep me logged in</label>
                     </div>
                 </div>
 
