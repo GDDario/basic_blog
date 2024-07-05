@@ -26,6 +26,17 @@ function verifyItsNotLogged(): void
     }
 }
 
+function verifyIfUserIsNotAdmin(): void {
+    verifyItsNotLogged();
+
+    $isAdmin = verifyIfUserIsAdmin();
+
+    if (!$isAdmin) {
+        $_SESSION['message'] = ['type' => 'error', 'content' => 'Not allowed.'];
+        header('Location: /basic-blog/public/index.php');
+    }
+}
+
 function verifyUserRole(int $userId)
 {
     $userId = $_SESSION['user_id'];

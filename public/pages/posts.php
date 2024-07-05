@@ -2,7 +2,7 @@
 
 require '../../config/error.php';
 require_once '../../includes/functions/redirect.php';
-require_once '../../includes/functions/cookie.php';
+//require_once '../../includes/functions/cookie.php';
 
 session_start();
 
@@ -25,6 +25,8 @@ verifyItsNotLogged();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts - Basic Blog</title>
+
+    <link rel="stylesheet" href="../css/global.css">
 </head>
 
 <body>
@@ -51,7 +53,18 @@ verifyItsNotLogged();
         removeQueryParam('keep-logged');
     </script>
 
+    <?php include '../components/message.php' ?>
     <?php include "../components/header.php" ?>
+
+    <div class="page-body">
+        <main class="main-content floating-container">
+            Oi
+        </main>
+
+        <?php include "../components/side-bar.php" ?>
+    </div>
+
+    <?php include "../components/footer.php" ?>
 </body>
 
 </html>

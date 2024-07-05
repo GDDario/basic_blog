@@ -8,11 +8,17 @@
 }
 
 html {
+    --bright-yellow: #ffffb3;
+    --light-yellow: #ffffc6;
+    --very-light-yellow: #ffffe3;
+    --hard-yellow: #ffffa0;
+    --error-red: #e20000;
     --hard-grey: #969593;
+    --dark-grey: #333333;
 }
 
 body {
-    background-color: #ffffb3;
+    background-color: var(--light-yellow);
 }
 
 a {
@@ -27,17 +33,175 @@ input {
     font-size: 15px;
 }
 
+/**** Components ****/
+
 .message-container {
     position: absolute;
-    top: 2em;
-    right: 2em;
+    top: 6.4em;
+    right: 1.8em;
     width: 15em;
     border: 2px solid #000;
-    background-color: #fffff1;
+    background-color: var(--bright-yellow);
     padding: 0.5em;
     text-align: end;
+    z-index: 1;
+}
+
+.message-container.error .message-header {
+    color: var(--error-red);
+}
+
+.message-container.error hr {
+    border-color: var(--error-red);
 }
 
 .message-container hr {
     margin: 0.3em 0;
+}
+
+.main-header {
+    width: 100%;
+    background-color: var(--bright-yellow);
+    height: 4.375em;
+    border-bottom: 2px solid #000;
+    padding: 0.5em 2em;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    text-decoration: none;
+}
+
+.navigation-menu ul {
+    display: flex;
+    gap: 0.9em;
+    list-style: none;
+}
+
+.navigation-menu ul a {
+    font-size: 1.2em;
+}
+
+.user-options {
+    display: flex;
+    gap: 1em;
+}
+
+.user-options img {
+    width: 45px;
+    user-select: none;
+}
+
+.header-box {
+    border-radius: 2px;
+    background-color: var(--very-light-yellow);
+    padding: 0 0.3em;
+    display: flex;
+    gap: 0.5em;
+    border: 2px solid #000;
+    align-items: flex-end;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.user-menu {
+    position: relative;
+    min-width: 10em;
+    max-width: 14em;
+}
+
+.admin-button:hover,
+.user-menu:hover {
+    background-color: var(--hard-yellow);
+}
+
+.user-menu .username-container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-menu .username-container label {
+    user-select: none;
+    font-size: 0.9rem;
+}
+
+.user-menu .username-container .username {
+    font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-menu .sub-menu {
+    position: absolute;
+    list-style: none;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    border: 2px solid #000;
+    display: none;
+    z-index: 2;
+    background-color: var(--very-light-yellow);
+}
+
+.user-menu .sub-menu li a {
+    display: block;
+    padding: 2px;
+    text-decoration: none;
+}
+
+.user-menu .sub-menu a:hover {
+    background-color: var(--bright-yellow);
+}
+
+.user-menu .sub-menu.visible {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.page-body {
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    gap: 2em;
+    min-height: 90vh;
+}
+
+.main-content {
+    flex-basis: 80%;
+}
+
+.main-content h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.main-side-bar {
+    flex-basis: 20%;
+}
+
+.floating-container {
+    background-color: var(--bright-yellow);
+    border: 2px solid #000;
+    border-radius: 2px;
+    padding: 0.5em;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 1);
+}
+
+#editor {
+    min-height: 60vh;
+}
+
+.input-block .field-error {
+    margin-top: 2px;
+}
+
+.input-block .field-error p {
+    color: var(--error-red);
+    word-break: break-all;
 }

@@ -57,6 +57,8 @@ verifyItsLogged();
             </form>
         </div>
     </div>
+
+    <script src="../js/user-menu.js"></script>
 </body>
 
 </html>

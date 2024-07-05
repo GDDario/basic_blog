@@ -1,0 +1,23 @@
+.main-side-bar h4 {
+   font-size: 1.2rem;
+}
+
+.admin-nav {
+    margin-top: 0.25em;
+}
+
+.admin-nav ul li {
+    list-style: none;
+}
+
+.admin-nav ul li a {
+    text-decoration: none;
+}
+.admin-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+#editor {
+    height: 130px;
+  }

@@ -1,0 +1,34 @@
+h1 {
+    margin-bottom: 16px;
+}
+
+.post-container {
+    margin: 0.2em;
+    padding: 1em 2em;
+    background-color: var(--very-light-yellow);
+    border-radius: 0.25em;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.post-container .post-details {
+    color: var(--dark-grey);
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-container h3 {
+    margin-top: 8px;
+}
+
+.post-container .description,
+.post-container img {
+    margin-top: 4px;
+}
+
+.post-container img {
+    max-height: 300px;
+}
+
+.posts-separator {
+    margin: 0.8em 0;
+}

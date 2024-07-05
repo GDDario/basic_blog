@@ -9,11 +9,11 @@
 .central-card-container .card {
     width: 30%;
     height: 50%;
-    background-color: #fffff1;
+    background-color: var(--bright-yellow);
     border: 3px solid #000;
     border-radius: 2px;
     padding: 2em;
-    box-sizing: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 1px rgba(0, 0, 0, 1);
 }
 
 .card .authentication-form .form-body {
@@ -37,15 +37,6 @@
 
 .authentication-form .input-block label {
     display: block;
-}
-
-.authentication-form .input-block .field-error {
-    margin-top: 2px;
-}
-
-.authentication-form .input-block .field-error p {
-    color: rgb(226, 0, 0);
-    word-break: break-all;
 }
 
 .authentication-form input[type='text'],
@@ -74,6 +65,5 @@
     padding: 4px 8px;
     cursor: pointer;
     border: 2px solid #000;
-    ;
     background-color: var(--hard-grey);
 }

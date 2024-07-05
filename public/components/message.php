@@ -7,7 +7,7 @@ if (isset($_SESSION['message'])) {
     $content = $message['content'];
 
     echo "
-        <div class='message-container $type'>
+        <div class='message-container floating-container $type'>
             <p class='message-header'>
                 <b>$header</b>
             </p>
