@@ -15,29 +15,47 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+$uuid = $_POST['uuid'];
 $title = $_POST['title'];
 $description = $_POST['description'];
-$thumbnail = uploadImage();
+$thumbnail = $_FILES['thumbnail']['name'] ? uploadImage() : null;
 $content = $_POST['content'];
 
-$sql = 'INSERT INTO post (uuid, title, description, thumbnail_url, content, author_id, created_at)
-        VALUES (UUID(), :title, :description, :thumbnailUrl, :content, :author_id, NOW())';
+$sql = 'UPDATE 
+            post
+        SET 
+            title = :title, description = :description, content = :content, updated_at = now()
+        WHERE
+            uuid = :uuid';
 
 $statement = $connection->prepare($sql);
 $statement->bindParam(':title', $title);
 $statement->bindParam(':description', $description);
-$statement->bindParam(':thumbnailUrl', $thumbnail);
 $statement->bindParam(':content', $content);
-$statement->bindParam(':author_id', $_SESSION['user_id']);
+$statement->bindParam(':uuid', $uuid);
 $result = $statement->execute();
 
 if (!$result) {
     $_SESSION['message'] = ['type' => 'error', 'content' => 'The server could not create the post. Try again later.'];
     header('Location: ../../admin/pages/manage-posts.php');
-} else {
-    $_SESSION['message'] = ['type' => 'success', 'content' => 'Post created successfully!'];
-    header('Location: ../../admin/pages/manage-posts.php');
 }
+
+if ($thumbnail) {
+    $sql = 'UPDATE 
+                post
+            SET 
+                thumbnail_url = :thumbnailUrl
+            WHERE
+                uuid = :uuid';
+
+    $statement = $connection->prepare($sql);
+    $statement->bindParam(':thumbnailUrl', $thumbnail);
+    $statement->bindParam(':uuid', $uuid);
+    $result = $statement->execute();
+}
+
+$_SESSION['message'] = ['type' => 'success', 'content' => 'Post updated successfully!'];
+header('Location: ../../admin/pages/manage-posts.php');
 
 function uploadImage(): string
 {

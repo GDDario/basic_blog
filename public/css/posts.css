@@ -1,0 +1,19 @@
+
+
+.post-container {
+    margin: 0.2em;
+    margin-top: 1em;
+    padding: 1em 2em;
+    background-color: var(--very-light-yellow);
+    border-radius: 0.25em;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.post-container header {
+    text-align: end;
+}
+
+.post-container h3 {
+    text-align: center;
+    font-size: 1.5rem;
+}

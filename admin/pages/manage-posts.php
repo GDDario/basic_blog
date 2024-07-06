@@ -41,22 +41,25 @@ $numberOfPosts = count($posts);
         <main class="main-content floating-container">
             <h1>Manage posts</h1>
 
-            <section>
+            <section class="manage-post">
                 <?php
 
                 foreach ($posts as $index => $post) {
+
                     if (($index + 1) === $numberOfPosts) {
                         echo "<hr class='posts-separator'>";
                     }
+
+                    echo "
+                    <div class='wrapper'>
+                        <div class='post-container'>
+                    ";
 
                     $dateText = "Created at <b>{$post['created_at']}</b>";
                     if (!is_null($post['updated_at'])) {
                         $dateText .= " and updated at <b>{$post['updated_at']}</b>";
                     }
-
                 ?>
-
-                    <div class="post-container">
                         <header>
                             <div class="post-details">
                                 <p><?= $dateText ?></p>
@@ -71,13 +74,45 @@ $numberOfPosts = count($posts);
                         </div>
                     </div>
 
-                <?php
+                    <div class="post-operations">
+                        Operations
+                        <br>
+                        <br>
+                        <ul>
+                            <li><a href="edit-post.php?uuid=<?= $post['uuid'] ?>"><button class="default">Edit</button></a></li>
+                            <li><button class="warning" onclick="openModal('<?= $post['uuid'] ?>')">Delete</button></li>
+                        </ul>
+                    </div>
+                </div>
+            <?php
                 }
-
-                ?>
+            ?>
             </section>
         </main>
     </div>
+
+    <div class="modal-container dialog" id="delete-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Delete post</h3>
+                <button class="close-modal">x</button>
+            </div>
+
+            <div class="modal-body">
+                <p>Are you sure you want to delete it? This action <b>cannot</b> be undone.</p>
+            </div>
+
+            <form action="../../includes/forms/delete-post.php" method="post">
+                <input type="hidden" name="uuid" id='uuid' />
+                <div class="modal-footer">
+                    <button type="submit" class="confirm-deletion warning">Delete</button>
+                    <button type="button" class="close-modal default">Cancel</button>
+                </div>
+            </form>
+            </div>
+    </div>
+
+    <script src="../js/manage-posts.js"></script>
 </body>
 
 </html>

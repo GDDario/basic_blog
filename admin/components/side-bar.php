@@ -8,7 +8,7 @@
         <nav class="admin-nav">
             <ul>
                 <li><a href="/basic-blog/admin/pages/manage-posts.php">Manage posts</a></li>
-                <li><a href="/basic-blog/admin/pages/create-post.php">Crate post</a></li>
+                <li><a href="/basic-blog/admin/pages/create-post.php">Create post</a></li>
             </ul>
         </nav>
     </section>

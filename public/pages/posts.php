@@ -2,19 +2,14 @@
 
 require '../../config/error.php';
 require_once '../../includes/functions/redirect.php';
+require_once '../../includes/functions/post.php';
 //require_once '../../includes/functions/cookie.php';
 
 session_start();
 
 verifyItsNotLogged();
 
-// $userId = extractUserIdFromKeepMeLoggedInCookie();
-// var_dump($userId);
-// exit;
-// if (!isset($_SESSION['user_id'])) {
-//     header('Location: ./../public/pages/login.php');
-//     // return;
-// }
+$posts = listPosts();
 
 ?>
 
@@ -27,6 +22,7 @@ verifyItsNotLogged();
     <title>Posts - Basic Blog</title>
 
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/posts.css">
 </head>
 
 <body>
@@ -58,7 +54,40 @@ verifyItsNotLogged();
 
     <div class="page-body">
         <main class="main-content floating-container">
-            Oi
+            <h1>Blog posts</h1>
+
+            <section class="manage-post">
+                <?php
+
+                foreach ($posts as $index => $post) {
+                    echo "
+                    <a href='./post.php?uuid={$post['uuid']}'>
+                        <div class='post-container'>
+                    ";                    
+                ?>
+                        <header>
+                            <div class="post-details">
+                                <p>Created by <?= $post['author'] ?> at <b><?= $post['created_at'] ?></b></p>
+                                <?php
+                                if (!is_null($post['updated_at'])) {
+                                    echo "<p>Updated at <b>{$post['updated_at']}</b></p>";
+                                }
+                                ?>
+                            </div>
+                            <h3><?= $post['title'] ?></h3>
+                        </header>
+
+                        <div>
+                            <p class="description"><?= $post['description'] ?></p>
+                            <img src=<?= "../../uploads/posts/{$post['thumbnail_url']}" ?> />
+                        </div>
+                    </div>
+                </a>
+
+            <?php
+                }
+            ?>
+            </section>
         </main>
 
         <?php include "../components/side-bar.php" ?>

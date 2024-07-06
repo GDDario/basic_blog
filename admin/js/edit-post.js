@@ -19,7 +19,7 @@ const options = {
   theme: 'snow'
 };
 const quill = new Quill(container, options);
-quill.setContents('oi');
+quill.clipboard.dangerouslyPasteHTML(oldContent)
 content.value = oldContent;
 
 quill.on('text-change', (delta, oldDelta, source) => {

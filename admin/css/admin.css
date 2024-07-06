@@ -6,15 +6,28 @@
     margin-top: 0.25em;
 }
 
+.admin-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
 .admin-nav ul li {
     list-style: none;
+    width: 100%;
 }
 
 .admin-nav ul li a {
+    display: block;
     text-decoration: none;
+    background-color: var(--very-bright-yellow);
+    border: 1px solid #000;
+    width: 70%;
+    padding: 0.25em;
 }
 .admin-nav ul li a:hover {
     text-decoration: underline;
+    background-color: var(--light-yellow);
 }
 
 

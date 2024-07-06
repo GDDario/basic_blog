@@ -13,6 +13,7 @@ html {
     --very-light-yellow: #ffffe3;
     --hard-yellow: #ffffa0;
     --error-red: #e20000;
+    --dark-red: #a00000;
     --hard-grey: #969593;
     --dark-grey: #333333;
 }
@@ -27,6 +28,17 @@ a {
 
 button {
     font-size: 16px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+button.warning {
+    background-color: var(--hard-grey);
+}
+
+button.warning {
+    background-color: var(--dark-red);
+    color: #fff;
 }
 
 input {
@@ -35,16 +47,29 @@ input {
 
 /**** Components ****/
 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .message-container {
     position: absolute;
-    top: 6.4em;
-    right: 1.8em;
+    top: 5.4em;
+    right: 1.2em;
     width: 15em;
     border: 2px solid #000;
-    background-color: var(--bright-yellow);
+    background-color: var(--very-bright-yellow);
     padding: 0.5em;
     text-align: end;
     z-index: 1;
+    animation: fadeOut 4s forwards;
 }
 
 .message-container.error .message-header {
@@ -177,7 +202,7 @@ input {
 }
 
 .main-content h1 {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     text-align: center;
 }
 
@@ -204,4 +229,62 @@ input {
 .input-block .field-error p {
     color: var(--error-red);
     word-break: break-all;
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.modal-container.visible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: relative;
+    width: 50%;
+    height: 70%;
+    background-color: var(--very-light-yellow);
+    padding: 2em;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 1);
+}
+
+.modal-container.dialog .modal {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.modal-header button {
+    position: absolute;
+    right: 2em;
+    top: 2em;
+    background-color: var(--dark-red);
+    color: #fff;
+    padding: 0.25em 0.5em;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 0.5em;
+}
+
+.modal-footer button {
+    padding: 0.25em 0.5em;
 }

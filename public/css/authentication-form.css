@@ -63,7 +63,6 @@
 .authentication-form .form-footer button {
     width: 100%;
     padding: 4px 8px;
-    cursor: pointer;
     border: 2px solid #000;
     background-color: var(--hard-grey);
 }
