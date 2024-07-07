@@ -79,7 +79,7 @@ $posts = listPosts();
 
                         <div>
                             <p class="description"><?= $post['description'] ?></p>
-                            <img src=<?= "../../uploads/posts/{$post['thumbnail_url']}" ?> />
+                            <img src="../../uploads/posts/<?= $post['thumbnail_url'] ?>" />
                         </div>
                     </div>
                 </a>

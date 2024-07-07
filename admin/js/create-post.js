@@ -19,8 +19,6 @@ const options = {
   theme: 'snow'
 };
 const quill = new Quill(container, options);
-quill.setContents('oi');
-content.value = oldContent;
 
 quill.on('text-change', (delta, oldDelta, source) => {
   content.value = quill.getSemanticHTML();

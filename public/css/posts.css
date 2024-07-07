@@ -1,4 +1,6 @@
-
+.manage-post a {
+    text-decoration: none;
+}
 
 .post-container {
     margin: 0.2em;
@@ -16,4 +18,9 @@
 .post-container h3 {
     text-align: center;
     font-size: 1.5rem;
+}
+
+.post-container img {
+    max-height: 300px;
+    margin-top: 0.5em;
 }

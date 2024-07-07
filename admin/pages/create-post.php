@@ -40,13 +40,13 @@ verifyIfUserIsNotAdmin();
             <form class="post-operation" method="post" action="../../includes/forms/create-post.php" enctype="multipart/form-data">
                 <div class="input-block">
                     <label>Title</label>
-                    <input type="text" name="title" value="Post title" required />
+                    <input type="text" name="title" required />
                     <?php fieldError('title') ?>
                 </div>
 
                 <div class="input-block">
                     <label>description</label>
-                    <input type="text" name="description" value="A post description" required />
+                    <input type="text" name="description" required />
                     <?php fieldError('description') ?>
                 </div>
 
