@@ -55,7 +55,29 @@ function getPostByUuid(string $uuid)
     $statement->bindParam(':uuid', $uuid);
     $statement->execute();
 
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-    return $result[0];
+    return $result;
+}
+
+function getPostIdByUuid(string $uuid)
+{
+    $connection = mysqlConnection();
+
+    $sql = 'SELECT
+                id
+            FROM 
+                post
+            WHERE
+                uuid = :uuid
+            LIMIT 1
+    ';
+
+    $statement = $connection->prepare($sql);
+    $statement->bindParam(':uuid', $uuid);
+    $statement->execute();
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $result['id'];
 }

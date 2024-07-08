@@ -3,7 +3,7 @@
 require '../../config/error.php';
 require_once '../../includes/functions/redirect.php';
 require_once '../../includes/functions/post.php';
-//require_once '../../includes/functions/cookie.php';
+require_once '../../includes/functions/comment.php';
 
 session_start();
 
@@ -11,6 +11,8 @@ verifyItsNotLogged();
 
 $uuid = $_GET['uuid'];
 $post = getPostByUuid($uuid);
+
+$comments = getCommentsByPostUuid($uuid);
 
 ?>
 
@@ -28,26 +30,7 @@ $post = getPostByUuid($uuid);
 
 <body>
     <script>
-        function getQueryParam(param) {
-            let urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        function removeQueryParam(param) {
-            let urlParams = new URLSearchParams(window.location.search);
-            urlParams.delete(param);
-            let newUrl = window.location.pathname + '?  ' + urlParams.toString();
-            window.history.replaceState({}, document.title, newUrl);
-        }
-
-        let keepLogged = getQueryParam('keep-logged');
-        if (keepLogged === 'true') {
-            localStorage.setItem('keep-connected', true);
-        } else {
-            sessionStorage.setItem('keep-connected', true);
-        }
-
-        removeQueryParam('keep-logged');
+        const uuid = "<?= $uuid ?>";
     </script>
 
     <?php include '../components/message.php' ?>
@@ -65,12 +48,47 @@ $post = getPostByUuid($uuid);
 
                 <?= $post['content'] ?>
             </section>
+
+            <hr class="separator">
+
+            <section class="comments">
+                <h4>Comments</h4>
+
+                <button id="create-comment">Create comment</button>
+
+                <div id="new-comment" class="floating-container">
+                    <div class="header">
+                        <p>New comment</p>
+                        <button id="close-new-comment"><b>x</b></button>
+                    </div>
+
+                    <textarea id="new-comment-content" rows="3" placeholder="Write your comment here..."></textarea>
+
+                    <button id="publish-comment">Publish comment</button>
+                </div>
+
+                <div id="comments-container" class="comments-container">
+                    <?php
+                    foreach ($comments as $comment) {
+                    ?>
+                        <div class="comment">
+                            <p><?= $comment['name'] . ' at ' . $comment['created_at'] ?></p>
+                            <br>
+                            <p><?= $comment['content'] ?></p>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </section>
         </main>
 
         <?php include "../components/side-bar.php" ?>
     </div>
 
     <?php include "../components/footer.php" ?>
+
+    <script src="../js/post.js"></script>
 </body>
 
 </html>

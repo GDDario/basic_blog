@@ -6,3 +6,57 @@ img {
     max-height: 300px;
     margin-top: 0.5em;
 }
+
+.separator {
+    margin: 2em 0;
+}
+
+.comments h4 {
+    font-size: 1.5rem;
+}
+
+.comments button {
+    margin-top: 0.25em;
+    padding: 0.2em 0.5em;
+    cursor: pointer;
+}
+
+#new-comment {
+    background-color: var(--very-light-yellow);
+    padding: 0.25em;
+    width: 100%;
+    margin-top: 1em;
+    display: none;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+#new-comment.visible {
+    display: flex;
+}
+
+#new-comment .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#new-comment p {
+    font-weight: bold;
+}
+
+#new-comment textarea {
+    font-size: 1rem;
+    padding: 0.25rem;
+}
+
+#publish-comment {
+    width: 50%;
+}
+
+.comment {
+    margin-top: 1em;
+    padding: 0.25rem;
+    background-color: var(--very-light-yellow);
+    border-radius: 0.25em;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}

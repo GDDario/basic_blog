@@ -51,9 +51,11 @@ input {
     0% {
         opacity: 1;
     }
+
     60% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -208,6 +210,33 @@ input {
 
 .main-side-bar {
     flex-basis: 20%;
+}
+
+.main-side-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-side-bar section ul {
+    list-style: none;
+}
+
+.main-side-bar section h4 {
+    margin-bottom: 0.5em;
+}
+
+.main-side-bar hr {
+    margin: 1em 0;
+}
+
+.main-side-bar .bottom {
+    margin-bottom: 0.25em;
+}
+
+.main-side-bar .newsletter div {
+    display: flex;
+    gap: 0.25em;
 }
 
 .floating-container {
