@@ -23,9 +23,10 @@ publishCommentButton.addEventListener('click', () => {
                     <p>${newCommentData.content}</p>
                 </div>
             `;
-            
+
             commentsContainer.prepend(newPostElement);
-                    }
+            closeNewCommentButton.dispatchEvent(new Event('click'));
+        }
     }
 
     ajax.open('POST', '../../includes/forms/create-comment.php');
