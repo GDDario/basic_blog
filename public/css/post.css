@@ -60,3 +60,31 @@ img {
     border-radius: 0.25em;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
+
+.comment .comment-operations {
+    margin-top: 1em;
+    display: flex;
+    gap: 0.25em;
+}
+
+.comment-operations .like,
+.comment-operations .dislike {
+    cursor: pointer;
+    user-select: none;
+}
+
+.operation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.likes-count.liked {
+    color: #090;
+}
+
+.likes-count.disliked {
+    color: #900;
+}

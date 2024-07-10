@@ -4,6 +4,7 @@ require '../../config/error.php';
 require_once '../../includes/functions/redirect.php';
 require_once '../../includes/functions/post.php';
 require_once '../../includes/functions/comment.php';
+require_once '../../includes/functions/user.php';
 
 session_start();
 
@@ -75,6 +76,20 @@ $comments = getCommentsByPostUuid($uuid);
                             <p><?= $comment['name'] . ' at ' . $comment['created_at'] ?></p>
                             <br>
                             <p><?= $comment['content'] ?></p>
+                            <div class="comment-operations">
+                                <div class="operation-container">
+                                    <span role="button" class="like" id="like-<?= $comment['id'] ?>" onclick="likeComment(this)">👍</span>
+                                    <span class="likes-count <?php if ($comment['liked']) echo 'liked' ?>" id="number_likes-<?= $comment['id'] ?>">
+                                        <?= $comment['likes'] ?>
+                                    </span>
+                                </div>
+                                <div class="operation-container">
+                                    <span role="button" class="dislike" id="dislike-<?= $comment['id'] ?>" onclick="dislikeComment(this)">👎</span>
+                                    <span class="dislikes-count <?php if ($comment['liked']) echo 'disliked' ?>" id="number_dislikes-<?= $comment['id'] ?>">
+                                        <?= $comment['dislikes'] ?>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     <?php
                     }
