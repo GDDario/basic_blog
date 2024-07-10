@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 09, 2024 at 09:06 PM
+-- Generation Time: Jul 10, 2024 at 03:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,9 +45,47 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `uuid`, `post_id`, `user_id`, `content`, `likes`, `dislikes`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(12, '6b54d639-3e1d-11ef-a6df-48e7dad82c8d', 16, 1, 'teste', 0, 0, '2024-07-09 15:02:34', NULL, NULL),
-(19, '75e74e30-3e1e-11ef-a6df-48e7dad82c8d', 16, 1, 'testes', 0, 0, '2024-07-09 15:10:01', NULL, NULL),
-(20, '773278c5-3e1e-11ef-a6df-48e7dad82c8d', 16, 1, 'testes', 0, 0, '2024-07-09 15:10:04', NULL, NULL);
+(12, '6b54d639-3e1d-11ef-a6df-48e7dad82c8d', 16, 1, 'first', 0, 1, '2024-07-09 15:02:34', NULL, NULL),
+(19, '75e74e30-3e1e-11ef-a6df-48e7dad82c8d', 16, 1, 'second', 1, 0, '2024-07-09 15:10:01', NULL, NULL),
+(20, '773278c5-3e1e-11ef-a6df-48e7dad82c8d', 16, 1, 'third', 0, 0, '2024-07-09 15:10:04', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_dislike`
+--
+
+CREATE TABLE `comment_dislike` (
+  `id` int(11) NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comment_dislike`
+--
+
+INSERT INTO `comment_dislike` (`id`, `comment_id`, `user_id`) VALUES
+(121, 12, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_like`
+--
+
+CREATE TABLE `comment_like` (
+  `id` int(11) NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comment_like`
+--
+
+INSERT INTO `comment_like` (`id`, `comment_id`, `user_id`) VALUES
+(75, 19, 1);
 
 -- --------------------------------------------------------
 
@@ -133,6 +171,18 @@ ALTER TABLE `comment`
   ADD UNIQUE KEY `uuid` (`uuid`);
 
 --
+-- Indexes for table `comment_dislike`
+--
+ALTER TABLE `comment_dislike`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment_like`
+--
+ALTER TABLE `comment_like`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
@@ -162,6 +212,18 @@ ALTER TABLE `user`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `comment_dislike`
+--
+ALTER TABLE `comment_dislike`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+
+--
+-- AUTO_INCREMENT for table `comment_like`
+--
+ALTER TABLE `comment_like`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `post`

@@ -53,7 +53,7 @@ $post = getPostByUuid($uuid);
                 </div>
 
                 <div class="input-block">
-                    <label>description</label>
+                    <label>Description</label>
                     <input type="text" name="description" value="<?= $post['description'] ?>" required />
                     <?php fieldError('description') ?>
                 </div>

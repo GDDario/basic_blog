@@ -45,7 +45,7 @@ verifyIfUserIsNotAdmin();
                 </div>
 
                 <div class="input-block">
-                    <label>description</label>
+                    <label>Description</label>
                     <input type="text" name="description" required />
                     <?php fieldError('description') ?>
                 </div>
